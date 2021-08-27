@@ -9,7 +9,7 @@ def registration():
             print('Username Already Exists\n')
         else:
             if re.fullmatch(regexuser,username):
-                regexpass=r'[a-zA-B0-9]{1,}@[a-zA-Z0-9]{1,}\.[a-zA-Z]{2,}'
+                regexpass="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
                 while(True):
                     password = input('Enter Password: ')
                     if re.fullmatch(regexuser,password):
