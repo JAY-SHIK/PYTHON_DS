@@ -1,7 +1,7 @@
 import re
 def registration():
     print('----USER REGISTRATION----')
-    regexuser = r'[a-zA-B0-9]{1,}@[a-zA-Z0-9]{1,}\.[a-zA-Z]{2,}'
+    regexuser = r'[a-zA-Z0-9]{1,}@[a-zA-Z0-9]{1,}\.[a-zA-Z]{2,}'
     while (True):
         username=input('Enter Username: ')
         credentials=open('credentials.txt')
@@ -9,10 +9,10 @@ def registration():
             print('Username Already Exists\n')
         else:
             if re.fullmatch(regexuser,username):
-                regexpass="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
+                regexpass="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!#%*?&]{5,16}$"
                 while(True):
                     password = input('Enter Password: ')
-                    if re.fullmatch(regexuser,password):
+                    if re.fullmatch(regexpass,password):
                         print("\nRegistration Successfull")
                         with open('credentials.txt','a') as file:
                             file.write('{} {}\n'.format(username,password))
